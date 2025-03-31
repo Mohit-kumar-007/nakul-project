@@ -31,10 +31,10 @@ const Home = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 transition-colors duration-200">
       {/* Hero Section */}
-      <div className="relative bg-blue-600 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-blue-800 opacity-90"></div>
+      <div className="relative bg-blue-600 dark:bg-blue-800">
+        <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-blue-800 opacity-90 dark:opacity-100"></div>
         <div className="relative max-w-7xl mx-auto py-24 px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-4xl font-extrabold text-white sm:text-5xl md:text-6xl">
@@ -56,7 +56,7 @@ const Home = () => {
       </div>
 
       {/* Stats Section */}
-      <div className="py-12 bg-white">
+      <div className="py-12 bg-white dark:bg-gray-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {stats.map((stat, index) => {
@@ -64,11 +64,11 @@ const Home = () => {
               return (
                 <div key={index} className="text-center">
                   <div className="flex justify-center">
-                    <Icon className="h-8 w-8 text-blue-600" />
+                    <Icon className="h-8 w-8 text-blue-600 dark:text-blue-400" />
                   </div>
                   <div className="mt-4">
-                    <div className="text-3xl font-bold text-gray-900">{stat.value}</div>
-                    <div className="text-sm text-gray-600">{stat.label}</div>
+                    <div className="text-3xl font-bold text-gray-900 dark:text-white">{stat.value}</div>
+                    <div className="text-sm text-gray-600 dark:text-gray-300">{stat.label}</div>
                   </div>
                 </div>
               );
@@ -78,32 +78,32 @@ const Home = () => {
       </div>
 
       {/* Features Section */}
-      <div className="py-16 bg-gray-50">
+      <div className="py-16 bg-gray-50 dark:bg-gray-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <h2 className="text-3xl font-extrabold text-gray-900">Why Choose Our EMG Solution?</h2>
-            <p className="mt-4 text-xl text-gray-600">
+            <h2 className="text-3xl font-extrabold text-gray-900 dark:text-white">Why Choose Our EMG Solution?</h2>
+            <p className="mt-4 text-xl text-gray-600 dark:text-gray-300">
               Experience the future of electromyography with our comprehensive platform
             </p>
           </div>
           <div className="mt-12 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
             <FeatureCard
-              icon={<Activity className="h-8 w-8 text-blue-600" />}
+              icon={<Activity className="h-8 w-8 text-blue-600 dark:text-blue-400" />}
               title="Real-time Monitoring"
               description="Advanced EMG signal tracking and analysis for precise diagnosis"
             />
             <FeatureCard
-              icon={<Zap className="h-8 w-8 text-blue-600" />}
+              icon={<Zap className="h-8 w-8 text-blue-600 dark:text-blue-400" />}
               title="Signal Analysis"
               description="Sophisticated algorithms for accurate interpretation of electrical signals"
             />
             <FeatureCard
-              icon={<Brain className="h-8 w-8 text-blue-600" />}
+              icon={<Brain className="h-8 w-8 text-blue-600 dark:text-blue-400" />}
               title="AI-Powered Insights"
               description="Machine learning algorithms for predictive analysis and treatment recommendations"
             />
             <FeatureCard
-              icon={<Stethoscope className="h-8 w-8 text-blue-600" />}
+              icon={<Stethoscope className="h-8 w-8 text-blue-600 dark:text-blue-400" />}
               title="Expert Care"
               description="Personalized treatment plans backed by professional medical expertise"
             />
@@ -112,11 +112,11 @@ const Home = () => {
       </div>
 
       {/* EMG Information Section */}
-      <div className="py-16 bg-white">
+      <div className="py-16 bg-white dark:bg-gray-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="lg:text-center">
-            <h2 className="text-3xl font-extrabold text-gray-900">Understanding EMG</h2>
-            <p className="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">
+            <h2 className="text-3xl font-extrabold text-gray-900 dark:text-white">Understanding EMG</h2>
+            <p className="mt-4 max-w-2xl text-xl text-gray-500 dark:text-gray-400 lg:mx-auto">
               Electromyography (EMG) is a diagnostic procedure that measures muscle response to nervous stimulation.
             </p>
           </div>
@@ -131,21 +131,21 @@ const Home = () => {
                 />
               </div>
               <div className="space-y-6">
-                <h3 className="text-2xl font-bold text-gray-900">How EMG Works</h3>
-                <p className="text-gray-600">
+                <h3 className="text-2xl font-bold text-gray-900 dark:text-white">How EMG Works</h3>
+                <p className="text-gray-600 dark:text-gray-300">
                   EMG records the electrical activity produced by skeletal muscles. The test involves inserting a thin needle electrode into the muscle to measure electrical activity at rest and during muscle contraction.
                 </p>
-                <p className="text-gray-600">
+                <p className="text-gray-600 dark:text-gray-300">
                   This helps diagnose muscle and nerve conditions, providing valuable insights for treatment planning and monitoring recovery progress.
                 </p>
                 <div className="grid grid-cols-2 gap-4 mt-6">
-                  <div className="bg-blue-50 p-4 rounded-lg">
-                    <h4 className="font-semibold text-blue-900">Diagnostic Accuracy</h4>
-                    <p className="text-sm text-blue-700">95% accuracy in detecting muscle and nerve conditions</p>
+                  <div className="bg-blue-50 dark:bg-blue-900/30 p-4 rounded-lg">
+                    <h4 className="font-semibold text-blue-900 dark:text-blue-200">Diagnostic Accuracy</h4>
+                    <p className="text-sm text-blue-700 dark:text-blue-300">95% accuracy in detecting muscle and nerve conditions</p>
                   </div>
-                  <div className="bg-green-50 p-4 rounded-lg">
-                    <h4 className="font-semibold text-green-900">Recovery Tracking</h4>
-                    <p className="text-sm text-green-700">Real-time progress monitoring and analysis</p>
+                  <div className="bg-green-50 dark:bg-green-900/30 p-4 rounded-lg">
+                    <h4 className="font-semibold text-green-900 dark:text-green-200">Recovery Tracking</h4>
+                    <p className="text-sm text-green-700 dark:text-green-300">Real-time progress monitoring and analysis</p>
                   </div>
                 </div>
               </div>
@@ -155,17 +155,17 @@ const Home = () => {
       </div>
 
       {/* Testimonials Section */}
-      <div className="py-16 bg-gray-50">
+      <div className="py-16 bg-gray-50 dark:bg-gray-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <h2 className="text-3xl font-extrabold text-gray-900">What Our Users Say</h2>
-            <p className="mt-4 text-xl text-gray-600">
+            <h2 className="text-3xl font-extrabold text-gray-900 dark:text-white">What Our Users Say</h2>
+            <p className="mt-4 text-xl text-gray-600 dark:text-gray-300">
               Trusted by healthcare professionals and patients worldwide
             </p>
           </div>
           <div className="mt-12 grid grid-cols-1 gap-8 md:grid-cols-3">
             {testimonials.map((testimonial, index) => (
-              <div key={index} className="bg-white p-6 rounded-lg shadow-md">
+              <div key={index} className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md">
                 <div className="flex items-center mb-4">
                   <img
                     src={testimonial.image}
@@ -173,11 +173,11 @@ const Home = () => {
                     className="h-12 w-12 rounded-full object-cover"
                   />
                   <div className="ml-4">
-                    <h4 className="font-semibold text-gray-900">{testimonial.name}</h4>
-                    <p className="text-sm text-gray-600">{testimonial.role}</p>
+                    <h4 className="font-semibold text-gray-900 dark:text-white">{testimonial.name}</h4>
+                    <p className="text-sm text-gray-600 dark:text-gray-300">{testimonial.role}</p>
                   </div>
                 </div>
-                <p className="text-gray-600 italic">"{testimonial.content}"</p>
+                <p className="text-gray-600 dark:text-gray-300 italic">"{testimonial.content}"</p>
               </div>
             ))}
           </div>
@@ -185,7 +185,7 @@ const Home = () => {
       </div>
 
       {/* CTA Section */}
-      <div className="bg-blue-600">
+      <div className="bg-blue-600 dark:bg-blue-800">
         <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8 lg:flex lg:items-center lg:justify-between">
           <h2 className="text-3xl font-extrabold tracking-tight text-white sm:text-4xl">
             <span className="block">Ready to get started?</span>
@@ -206,10 +206,10 @@ const Home = () => {
 
 const FeatureCard = ({ icon, title, description }: { icon: React.ReactNode; title: string; description: string }) => {
   return (
-    <div className="p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow">
+    <div className="p-6 bg-white dark:bg-gray-800 rounded-lg shadow-md hover:shadow-lg transition-shadow">
       <div className="flex items-center justify-center">{icon}</div>
-      <h3 className="mt-4 text-lg font-medium text-gray-900 text-center">{title}</h3>
-      <p className="mt-2 text-sm text-gray-500 text-center">{description}</p>
+      <h3 className="mt-4 text-lg font-medium text-gray-900 dark:text-white text-center">{title}</h3>
+      <p className="mt-2 text-sm text-gray-500 dark:text-gray-400 text-center">{description}</p>
     </div>
   );
 };
