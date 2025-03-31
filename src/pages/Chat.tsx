@@ -7,11 +7,41 @@ interface Message {
   timestamp: Date;
 }
 
+const EMG_RESPONSES = [
+  "Based on your EMG report, I recommend adjusting stimulation parameters to 2.5mA for 20 minutes, 3 times daily. This should help improve muscle response.",
+  "Your EMG shows improved muscle activity. Let's increase the stimulation to 3.0mA for 25 minutes, 2 times daily.",
+  "The EMG patterns indicate reduced muscle fatigue. I suggest maintaining current parameters: 2.0mA for 15 minutes, 4 times daily.",
+  "Your latest EMG shows excellent progress. We can gradually reduce stimulation to 1.8mA for 20 minutes, 3 times daily.",
+  "The EMG analysis suggests we should focus on specific muscle groups. Adjust to 2.2mA for 18 minutes, 3 times daily.",
+  "Your EMG indicates good muscle recovery. Let's try 2.8mA for 22 minutes, 2 times daily.",
+  "Based on the EMG patterns, I recommend alternating between 2.0mA and 2.5mA every other session.",
+  "The EMG shows improved nerve conduction. Maintain current settings: 2.3mA for 20 minutes, 3 times daily.",
+  "Your EMG indicates we should increase frequency. Try 2.7mA for 25 minutes, 2 times daily.",
+  "The EMG analysis suggests optimal recovery at 2.4mA for 21 minutes, 3 times daily."
+];
+
+const HEALTHCARE_RESPONSES = [
+  "Regular exercise is crucial for muscle recovery. Try gentle stretching exercises before stimulation sessions.",
+  "For optimal results, maintain a balanced diet rich in protein and essential nutrients.",
+  "Stay hydrated throughout the day, especially before and after stimulation sessions.",
+  "Getting adequate sleep (7-9 hours) helps with muscle recovery and nerve regeneration.",
+  "Avoid strenuous activities for at least 2 hours after stimulation sessions.",
+  "Consider using ice packs after sessions if you experience any discomfort.",
+  "Keep a daily log of your stimulation sessions and any changes in muscle response.",
+  "Regular physical therapy sessions can complement your stimulation treatment.",
+  "Stress management techniques like deep breathing can help with muscle relaxation.",
+  "Make sure to warm up your muscles before starting stimulation sessions."
+];
+
 const Chat = () => {
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState('');
   const [isUploading, setIsUploading] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
+
+  const getRandomResponse = (responses: string[]) => {
+    return responses[Math.floor(Math.random() * responses.length)];
+  };
 
   const handleFileUpload = async (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
@@ -22,7 +52,7 @@ const Chat = () => {
     setTimeout(() => {
       setMessages(prev => [...prev, {
         type: 'bot',
-        content: 'I\'ve analyzed your EMG report. Based on the electrical signals, I recommend adjusting the stimulation parameters to 2.5mA for 20 minutes, 3 times daily. This should help improve muscle response.',
+        content: getRandomResponse(EMG_RESPONSES),
         timestamp: new Date()
       }]);
       setIsUploading(false);
@@ -46,7 +76,7 @@ const Chat = () => {
     setTimeout(() => {
       const botMessage: Message = {
         type: 'bot',
-        content: 'I understand your question. Let me help you with that...',
+        content: getRandomResponse(HEALTHCARE_RESPONSES),
         timestamp: new Date()
       };
       setMessages(prev => [...prev, botMessage]);
